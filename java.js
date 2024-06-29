@@ -201,7 +201,7 @@
 
 // // EJERCICIO 16
 
-let arreglo16 = [133, 6445, 286, 36, 6778, 10415, 487001, 3621, 461, 71]
+let arreglo16 = [133, 6445, 286, 36, 6778, 1045, 487001, 3621, 461, 71]
 console.log("Arreglo desordenado:");
 console.log(arreglo16);
 
@@ -211,8 +211,8 @@ function intercambio(array, y, z) {
     array[z] = newA
 }
 
-for (let k = 0; k <= 9; k++) {
-    for (let i = 0; i <= 9; i++) {
+for (let k = 0; k <= arreglo16.length; k++) {
+    for (let i = 0; i <= arreglo16.length ; i++) {
         if ((arreglo16[i]) < (arreglo16[k])) {
             intercambio(arreglo16, (k), (i))
         }
