@@ -1,13 +1,13 @@
 // // EJERCICIO 1
 
-// let numeroMultiplicador = parseInt(prompt("Ingresa un numero"));
+// let numeroMultiplicador = parseInt(prompt("¿De qué número deseas la tabla de multiplicar?"));
 
 // for (i = 1; i<=10; i++) {
 //     console.log(numeroMultiplicador+" x "+i+" = "+(numeroMultiplicador*i));
 
 // }
 
-// // EJERCICIO 2  NO TERMINADO
+// // EJERCICIO 2 
 
 // let numeroAgregar = parseInt(prompt("Ingrese un número a acumular: "))
 // let agregados = 0
@@ -103,12 +103,12 @@
 // ]
 
 // for (let i = 0; i < arreglo8.length; i++) {
-//    console.log("La persona número " +i+ ", de nombre "+((arreglo8[i]).Nombre)+ ", tiene "+((arreglo8[i]).edad)+" años, su DNI es: "+((arreglo8[i]).DNI)+" y el nombre de su mascota es: "+((arreglo8[i]).mascota)+ ".")
+//    console.log(((arreglo8[i]).Nombre)+ " tiene "+((arreglo8[i]).edad)+" años, su DNI es: "+((arreglo8[i]).DNI)+" y el nombre de su mascota es: "+((arreglo8[i]).mascota)+ ".")
 // }
 
 // // EJERCICIO 9
 
-// let arreglo9 = [98, 72, 15, 25, 8, 395, 12548, 126, 36, 25]
+// let arreglo9 = [98, 72, 17, 23, 8, 39511, 12548, 126, 36, 29]
 
 // for (let i = 0; i < arreglo9.length; i++) {
 //     if ((Number.isInteger((arreglo9[i])/2))==false) {
@@ -118,7 +118,7 @@
 
 // // EJERCICIO 10
 
-// let numerosAgregar = parseInt(prompt("Ingrese un número para sumarlo: "))
+// let numerosAgregar = parseInt(prompt("Ingrese un número: "))
 // let agregadosEnteros = 0
 // let agregadosImpares = 0
 
@@ -132,7 +132,7 @@
 
 //     numerosAgregar = parseInt(prompt("Ingrese un número para sumarlo: "))
 // }
-// alert ("Has ingresado 0, la suma se ha detenido. Checa tu consola.")
+// alert ("Has ingresado 0, la suma se ha detenido. Verifica ahora tu consola.")
 // console.log ("La suma de los impares es: " +agregadosImpares+" y la suma de los pares es: "+agregadosEnteros)
 
 
@@ -144,29 +144,25 @@
 // for (let i = 0; i < (arreglo11.length); i++) {
 
 //     if ((numeroMayor) < (arreglo11[i])) {
-
 //         numeroMayor = (arreglo11[i])
-
 //     }
 // }
-
-// console.log(numeroMayor)
+// console.log(arreglo11);
+// console.log("El número más grande del arreglo es: "+numeroMayor)
 
 // // EJERCICIO 12
 
-// let arreglo12 = [74526, 85632, 3, 231646, 54156, 5616841652, 56421, 545, 741, 248]
+// let arreglo12 = [11, 85632, 223, 231646, 54156, 5616841652, 2332, 5, 741, 248]
 // let numeroMenor = (arreglo12[0])
 
 // for (let i = 1; i < (arreglo12.length); i++) {
 
 //     if ((numeroMenor) > (arreglo12[i])) {
-
 //         numeroMenor = (arreglo12[i])
-
 //     }
 // }
-
-// console.log(numeroMenor);
+// console.log(arreglo12);
+// console.log("El número menor es: "+numeroMenor);
 
 // // EJERCICIO 13
 
@@ -179,8 +175,8 @@
 //     jugador2 = prompt("JUGADOR 2. Ingresa: piedra, papel o tijeras.")
 // }
 
-// if (jugador1=="piedra"&&jugador2=="tijeras"||jugador1=="papel"&&jugador2=="piedra"||jugador1=="tijeras"&&jugador2=="papel"){
-// alert("¡Jugador 1 ha ganado!")
+// if (jugador1 == "piedra" && jugador2 == "tijeras" || jugador1 == "papel" && jugador2 == "piedra" || jugador1 == "tijeras" && jugador2 == "papel") {
+//     alert("¡Jugador 1 ha ganado!")
 // }
 // else {
 //     alert("¡Jugador 2 gana!");
@@ -199,85 +195,28 @@
 
 // asterisco = "* "
 
-// for (let x = 5; x >=0 ; x--) {
+// for (let x = 5; x >=1 ; x--) {
 //     console.log(asterisco.repeat(x));
 // }
 
 // // EJERCICIO 16
 
-// let arreglo16 = [841, 645, 2846, 36, 280, 10945, 487001, 3621, 41, 1]
-// let numeroMayor = 0
-// let numeroMenor = arreglo16[0]
+let arreglo16 = [133, 6445, 286, 36, 6778, 10415, 487001, 3621, 461, 71]
+console.log("Arreglo desordenado:");
+console.log(arreglo16);
 
-// function posicion(x) {
-//     let numPosicion = arreglo16.indexOf(x)
-//     return numPosicion
-// }
+function intercambio(array, y, z) {
+    let newA = array[y]
+    array[y] = array[z]
+    array[z] = newA
+}
 
-// function intercambio(array, y, z) {
-//     let newA = array[y]
-//     array[y] = array[z]
-//     array[z] = newA
-// }
-
-// for (let i = 0; i < (arreglo16.length); i++) {
-
-//     if (numeroMayor < (arreglo16[i])) {
-//         numeroMayor = (arreglo16[i])
-//     }
-//     else if ((numeroMenor) > (arreglo16[i])) {
-//         numeroMenor = (arreglo16[i])
-//     }
-// }
-
-// intercambio(arreglo16, posicion(numeroMayor), [9])
-// intercambio(arreglo16, posicion(numeroMenor), [0])
-
-// numeroMenor = arreglo16[1]
-// numeroMayor = arreglo16[8]
-
-// for (let i = 1; i <= 8; i++) {
-
-//     if (numeroMayor < (arreglo16[i])) {
-//         numeroMayor = (arreglo16[i])
-//     }
-//     else if ((numeroMenor) > (arreglo16[i])) {
-//         numeroMenor = (arreglo16[i])
-//     }
-// }
-// intercambio(arreglo16, posicion(numeroMayor), [8])
-// intercambio(arreglo16, posicion(numeroMenor), [1])
-
-// numeroMenor = arreglo16[2]
-// numeroMayor = arreglo16[7]
-
-// for (let i = 2; i <= 7; i++) {
-
-//     if (numeroMayor < (arreglo16[i])) {
-//         numeroMayor = (arreglo16[i])
-//     }
-//     else if ((numeroMenor) > (arreglo16[i])) {
-//         numeroMenor = (arreglo16[i])
-//     }
-// }
-// intercambio(arreglo16, posicion(numeroMayor), [7])
-// intercambio(arreglo16, posicion(numeroMenor), [2])
-
-// numeroMenor = arreglo16[3]
-// numeroMayor = arreglo16[6]
-
-// for (let i = 3; i <= 6; i++) {
-
-//     if (numeroMayor < (arreglo16[i])) {
-//         numeroMayor = (arreglo16[i])
-//     }
-//     else if ((numeroMenor) > (arreglo16[i])) {
-
-//         numeroMenor = (arreglo16[i])
-
-//     }
-// }
-// intercambio(arreglo16, posicion(numeroMayor), [6])
-// intercambio(arreglo16, posicion(numeroMenor), [3])
-// console.log(arreglo16);
-
+for (let k = 0; k <= 9; k++) {
+    for (let i = 0; i <= 9; i++) {
+        if ((arreglo16[i]) < (arreglo16[k])) {
+            intercambio(arreglo16, (k), (i))
+        }
+    }
+}
+console.log("Arreglo ordenado:");
+console.log(arreglo16);
