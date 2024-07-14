@@ -1,0 +1,13 @@
+.interfaz{
+    background-color: yellow;
+}
+
+.tarjetaTamaño {
+    width: 22rem;
+    height: 35vh;
+    background-color: rgb(231, 240, 209);
+}
+
+#boton{
+    height: 3rem;
+}

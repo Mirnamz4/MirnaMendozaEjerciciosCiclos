@@ -220,3 +220,28 @@ for (let k = 0; k <= arreglo16.length; k++) {
 }
 console.log("Arreglo ordenado:");
 console.log(arreglo16);
+
+
+// // EJERCICIO 16 NUEVA LÓGICA
+
+// let arreglo166 = [133, 6445, 2, 36, 6778, 1041, 47001, 35621, 461, 1171]
+// console.log("Arreglo desordenado:");
+// console.log(arreglo166);
+
+// function intercambio(array, y, z) {
+//     let newA = array[y]
+//     array[y] = array[z]
+//     array[z] = newA
+// }
+
+// for (let m = 0; m <= arreglo166.length; m++) {
+//     for (let i = 0; i <= arreglo166.length; i++) {
+//         while ((arreglo166[i]) > (arreglo166[i + 1])) {
+//             intercambio(arreglo16, (i + 1), (i))
+//         } 
+//     }
+// }
+// console.log("Arreglo ordenado:");
+// console.log(arreglo166);
+
+

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos</title>
+</head>
+
+<body>
+    <div class="programas d-flex row justify-content-center">
+
+        <section class="contenedorIMC mt-3 text-center border border-5 rounded-4 d-flex row">
+            <h1 class="mb-4">Calcula tu IMC</h1>
+            <div class="input-group mb-3">
+                <span class="input-group-text">Mi estatura es de: </span>
+                    <input type="number" class="form-control text-center" id="estatura">
+                    <span class="input-group-text">cm</span>
+            </div>
+            <div class="input-group mb-3">
+
+                <span class="input-group-text">Mi peso es de: </span>
+                <input type="number" class="form-control text-center" id="peso">
+                <span class="input-group-text">kg</span>
+            </div>
+            <div class="input-group mb-3 contIMC">
+                <span class="input-group-text">Tu IMC es de: </span>
+                <input type="text" class=" form-control text-center" id="resultado">
+            </div>
+            <div class="d-grid gap-2 col-6 mx-auto">
+                <button class="btn btn-primary align-self-center" id="calcular" type="button">Calcular</button>
+              </div>
+        </section>
+
+        <section class="pesos border border-5 rounded-4 d-flex row">
+
+            <h1 class="mt-1 text-center">Convierte pesos argentinos a dólares</h1>
+
+            <div class="input-group mb-2 contArg">
+
+                <span class="input-group-text">Peso argentino: </span>
+                <input type="text" class=" form-control text-center" id="argentino" value="919.12">
+                <span class="input-group-text"> ARS </span>
+            </div>
+            <div class="input-group mb-3 contEU">
+
+                <span class="input-group-text ">Dólar estadounidense: </span>
+                <input type="text" class="form-control text-center" id="dolar" value="1">
+                <span class="input-group-text"> USD </span>
+            </div>
+        </section>
+    </div>
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="./ejercicio1y2.css">
+    <script src="ejercicio1Y2.js"></script>
+</body>
+
+</html>
