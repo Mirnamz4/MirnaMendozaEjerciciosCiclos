@@ -6,24 +6,27 @@ let posicion = (notas.length) - 1
 
 let tarjetass = document.getElementById('tarjetas')
 let contenedor = document.createElement('div')
-contenedor.className = "container-fluid d-flex flex-wrap justify-content-center gap-4 p-4 gap-lg-5"
+contenedor.className = "container-fluid p-3"
+contenedor.id = `conte`
 tarjetass.appendChild(contenedor)
-let interfaz = document.createElement('div')
-interfaz.className = "interfaz"
 
+let interfaz = document.createElement('div')
+interfaz.className = "rounded-pill container-fluid text-center border border-light-subtle"
+interfaz.id = `inter`
 interfaz.innerHTML =
     `
-    <div class="interfaz">
-        <h5 class="card-title fw-bold"> Nueva Nota </h5>
+    <div class="interfaz rounded-pill">
+        <h5 class="card-title fw-bolder fs-3 p-3 fst-italic" id="nuevaNot"> 
+        Agregar Nueva Nota </h5>
 
         <div class="input-group">
 
-            <input type="text" class=" form-control" placeholder="Título" id="titulo">
-            <textarea class="form-control" placeholder="Escriba su nota aquí." id="nota"></textarea>
+            <input type="text" class="form-control border border-warning" placeholder="Título" id="titulo">
+            <textarea class="form-control border border-warning" placeholder="Escriba su nota aquí." id="nota"></textarea>
 
         </div>
 
-        <div class="botones">
+        <div class="botones p-2 ">
             <button type="button" class="btn btn-success" id="guardar">Guardar</button>
             <button type="button" class="btn btn-danger" id="borrar">Borrar</button>
         </div>
@@ -31,8 +34,28 @@ interfaz.innerHTML =
 `
 contenedor.appendChild(interfaz)
 
+let buscadores = document.createElement('div')
+buscadores.className= "container p-2"
+buscadores.id= `buscadoresCSS`
+buscadores.innerHTML =
+    ` <input type="text" class="form-control mb-2 border border-success" placeholder="Buscar" id="buscarNotas">
+  <div class="form-check form-switch">
+      <input type="checkbox" onclick="mostrarRealizadas()" class="form-check-input border border-success mt-1" value="" id="checkRealizadas">
+      <label class="form-check-label fs-6" id="realizadas" for="checkRealizadas">Realizadas</label>
+  </div>`
+contenedor.appendChild(buscadores)
+
+let contieneTarjetas = document.createElement('div')
+contieneTarjetas.className = "container-fluid d-flex flex-wrap justify-content-center gap-4 p-4 gap-lg-5"
+contenedor.appendChild(contieneTarjetas)
+
+function mostrarRealizadas() {
+    let mostrar = notas.filter(real => real.realizada == false)
+    
+}
+
 let sinNotas = document.createElement('div')
-sinNotas.innerHTML = ` <h3>No existen notas para mostrar.</h3> `
+sinNotas.innerHTML = ` <h3 id=nohaynotas>No existen notas para mostrar.</h3> `
 contenedor.appendChild(sinNotas)
 
 borrar.onclick = function () {
@@ -68,21 +91,21 @@ function crearTarjeta(x) {
     }
     let tarjeta = document.createElement('div')
     tarjeta.id = `tarjetaBorrar${idGlobal}`
-    tarjeta.className = "card tarjetaTamaño "
+    tarjeta.className = "card container-fluid tarjetaTamaño "
 
     tarjeta.innerHTML =
         `
             <div class="card-body text-center d-flex row">
                 <div class="form-check">
                     <input onclick="marcarRealizada(${idGlobal})" id="check${idGlobal}" class="form-check-input check" type="checkbox" ${notas[x].realizada ? "checked" : ""} value="" id="flexCheckChecked" >
-                    <label class="form-check-label" for="flexCheckChecked">${notas[x].titulo}</label>
+                    <label class="form-check-label fs-4" id=texto for="flexCheckChecked">${notas[x].titulo}</label>
                 </div>
                 <h3>${notas[x].texto}</h3>
-                <button type="button" class="btn btn-danger" onclick="borrarNota(${idGlobal})" id="borrarN">Borrar nota</button>
+                <button type="button" class="btn btn-danger" id=borrarNota onclick="borrarNota(${idGlobal})" id="borrarN">Borrar nota</button>
             </div>     
    `
 
-    contenedor.appendChild(tarjeta)
+    contieneTarjetas.appendChild(tarjeta)
 
     titulo.value = ""
 }
@@ -94,11 +117,11 @@ function marcarRealizada(x) {
 
     if (indiceCheck == true) {
         notas[posicionCheck].realizada = true
+        console.log(posicionCheck);
     }
     else {
         notas[posicionCheck].realizada = false
     }
-
 }
 
 function borrarNota(par) {
@@ -110,24 +133,8 @@ function borrarNota(par) {
 
     if (notas.length == 0) {
         sinNotas = document.createElement('div')
-        sinNotas.innerHTML = ` <h3>No existen notas para mostrar.</h3> `
+        sinNotas.innerHTML = ` <h3 id=nohaynotas>No existen notas para mostrar.</h3> `
         contenedor.appendChild(sinNotas)
     }
 }
 
-let buscadores = document.createElement('div')
-buscadores.innerHTML =
-    `
-<div class="form-check form-switch">
-  <input type="checkbox" onclick="mostrarRealizadas()" class="form-check-input" value="" id="checkRealizadas">
-  <label class="form-check-label" for="checkRealizadas">Realizadas</label>
-  </div>
-<input type="text" class="form-control" placeholder="Buscar" id="buscarNotas">
-
-    `
-contenedor.appendChild(buscadores)
-
-function mostrarRealizadas() {
-    let mostrar = notas.filter(real => real.realizada == false)
-    
-}

@@ -1,13 +1,51 @@
-.interfaz{
-    background-color: yellow;
+*{
+padding: 0;
 }
-
+#conte{
+    width: 100%;
+    min-height: 100vh;
+    background-image: url(./OIP.jpeg)
+}
+#nuevaNot{
+    color: rgb(248, 229, 232);
+}
+#inter{
+    height: 25vh;
+    width: 50vw;
+    background-color: rgba(235, 54, 84, 0.562);
+}
+#realizadas{
+    font-weight: 700;
+    color: rgb(9, 61, 30);
+    font-family:Georgia, 'Times New Roman', Times, serif
+}
 .tarjetaTamaño {
     width: 22rem;
     height: 35vh;
-    background-color: rgb(231, 240, 209);
+    background-color: rgba(178, 209, 184, 0.856);
 }
-
+#texto{
+    width: 20rem;
+    font-weight: 900;
+    font-family:Arial, Helvetica, sans-serif;
+    color: rgb(134, 5, 33);
+}
 #boton{
     height: 3rem;
+}
+#borrarNota{
+    height: 15%;
+    align-self: flex-end;
+}
+#nohaynotas{
+    background-color: rgba(244, 244, 252, 0.644);
+    display: inline;
+}
+#buscadoresCSS{
+    background-color: #50ca9bbe;
+    height: 10vh;
+    width: 40vw;
+    margin-top: 10px;
+    border: solid 1px green;
+    border-radius: 10px;
 }
