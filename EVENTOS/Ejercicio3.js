@@ -125,13 +125,13 @@ function crearTarjeta(array) {
 
         tarjeta.innerHTML =
             `
-            <div class="card-body text-center d-flex row">
+            <div class="container-fluid card-body text-center d-flex row">
                 <div class="form-check">
                     <input onclick="marcarRealizada(${i})" id="check${i}" class="form-check-input check" type="checkbox" ${array[i].realizada ? "checked" : ""} value="" id="flexCheckChecked" >
                     <label class="form-check-label fs-4" id=texto for="flexCheckChecked">${array[i].titulo}</label>
                 </div>
                 <h3 id="tum${i}">${array[i].texto}</h3>
-                <button type="button" class="btn btn-danger" id=borrarNota onclick="borrarNota(${i})" id="borrarN">Borrar nota</button>
+                <button type="button" class="btn btn-danger" id=borrarNota onclick="borrarNota(${i})">Borrar nota</button>
             </div>     
    `
 
@@ -184,7 +184,7 @@ function mostrarRealizadas() {
         crearTarjeta(notasFi)
     }
     else if ((palomita == false) && (buscarNotas.value == "")) {
-        
+
         crearTarjeta(notas)
     }
     else if ((palomita == false) && (buscarNotas.value !== "")) {

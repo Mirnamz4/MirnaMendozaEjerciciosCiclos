@@ -25,16 +25,13 @@ padding: 0;
     background-color: rgba(178, 209, 184, 0.856);
 }
 #texto{
-    width: 20rem;
+    width: 94%;
     font-weight: 900;
     font-family:Arial, Helvetica, sans-serif;
     color: rgb(134, 5, 33);
 }
-#boton{
-    height: 3rem;
-}
 #borrarNota{
-    height: 15%;
+    height: 5vh;
     align-self: flex-end;
 }
 #nohaynotas{
@@ -59,7 +56,7 @@ padding: 0;
         width: 60vw;
     }
 }
-@media (min-width:320px) and (max-width:514px){
+@media (min-width:396px) and (max-width:514px){
     #inter{
         height: 28vh;
         width: 95vw;
@@ -78,5 +75,25 @@ padding: 0;
     }
     #buscadoresCSS{
         width: 70vw;
+    }
+}
+@media (max-width: 395px){
+    #inter{
+        height: 28vh;
+        width: 95vw;
+    }
+    #nota{
+        width: 60%;
+        border-radius: 10px;
+    }
+    #titulo{
+        width: 60%;
+        border-radius: 13px;
+    }
+    #buscadoresCSS{
+        width: 70vw;
+    }
+    #texto{
+        text-align: start;
     }
 }
