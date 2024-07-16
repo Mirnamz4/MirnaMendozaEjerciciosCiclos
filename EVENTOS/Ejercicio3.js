@@ -127,7 +127,7 @@ function crearTarjeta(array) {
             `
             <div class="container-fluid card-body text-center d-flex row">
                 <div class="form-check">
-                    <input onclick="marcarRealizada(${i})" id="check${i}" class="form-check-input check" type="checkbox" ${array[i].realizada ? "checked" : ""} value="" id="flexCheckChecked" >
+                    <input onclick="marcarRealizada(${i})" id="check${i}" class="form-check-input check" type="checkbox" ${array[i].realizada ? "checked" : ""} value="" >
                     <label class="form-check-label fs-4" id=texto for="flexCheckChecked">${array[i].titulo}</label>
                 </div>
                 <h3 id="tum${i}">${array[i].texto}</h3>
@@ -157,9 +157,20 @@ function borrarNota(par) {
 // Marcar realizada
 
 function marcarRealizada(x) {
-    notas[x].realizada = true
+
+    let palomita = document.getElementById('check'+x).checked
     let incauto = document.getElementById('tum' + x)
-    incauto.classList.toggle('text-decoration-line-through')
+
+    if (palomita) {
+        notas[x].realizada = true
+        incauto.classList.add('text-decoration-line-through')
+    }
+    else if (palomita== false) {
+        console.log(palomita);
+        notas[x].realizada = false
+        incauto.classList.remove('text-decoration-line-through')
+        
+    }
 }
 
 // Mostrar realizadas
@@ -207,7 +218,7 @@ buscarNotas.addEventListener('keyup', () => {
     let mostrar = notas.filter(real => real.realizada == true)
 
     if ((palomita) && (buscarNotas.value == "")) {
-        crearTarjeta(mostrar)
+        crearTarjetaConPaloma(mostrar)
     }
     else if ((palomita) && (buscarNotas.value !== "")) {
 
@@ -235,3 +246,30 @@ buscarNotas.addEventListener('keyup', () => {
     }
 
 })
+
+function crearTarjetaConPaloma(array) {
+
+    contieneTarjetas.innerHTML = "";
+
+    for (let i = 0; i < array.length; i++) {
+
+        let tarjeta = document.createElement('div')
+        tarjeta.id = `tarjetaBorrar${i}`
+        tarjeta.className = "card container-fluid tarjetaTamaño "
+
+        tarjeta.innerHTML =
+            `
+            <div class="container-fluid card-body text-center d-flex row">
+                <div class="form-check">
+                    <input onclick="marcarRealizada(${i})" id="check${i}" class="form-check-input check" type="checkbox" ${array[i].realizada ? "checked" : ""} value="" id="flexCheckChecked" >
+                    <label class="form-check-label fs-4" id=texto for="flexCheckChecked">${array[i].titulo}</label>
+                </div>
+                <h3 class="text-decoration-line-through" id="tum${i}">${array[i].texto}</h3>
+                <button type="button" class="btn btn-danger" id=borrarNota onclick="borrarNota(${i})">Borrar nota</button>
+            </div>     
+   `
+
+        contieneTarjetas.appendChild(tarjeta)
+    }
+
+}
