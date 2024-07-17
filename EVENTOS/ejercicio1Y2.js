@@ -17,28 +17,28 @@ botonn.addEventListener('click', () => {
 
 
     if (res <= 16) {
-        recomendacion = "     (Esto es insuficiencia ponderal muy grave)"
+        recomendacion = "     (Insuficiencia ponderal muy grave)"
     }
     else if (16.01 < res && res <= 16.99) {
-        recomendacion = "     (Esto es insuficiencia ponderal grave)"
+        recomendacion = "     (Insuficiencia ponderal grave)"
     }
     else if (17 < res && res <= 18.49) {
-        recomendacion = "     (Esto es un bajo peso)"
+        recomendacion = "     (Bajo peso)"
     }
     else if (18.5 < res && res <= 24.99) {
-        recomendacion = "     (Esto es un peso normal)"
+        recomendacion = "     (Peso normal)"
     }
     else if (25 < res && res <= 29.99) {
-        recomendacion = "     (Esto es sobrepeso)"
+        recomendacion = "     (Sobrepeso)"
     }
     else if (30 < res && res <= 34.99) {
-        recomendacion = "     (Esto es obesidad grado I)"
+        recomendacion = "     (Obesidad grado I)"
     }
     else if (35 < res && res <= 39.99) {
-        recomendacion = "     (Esto es obesidad grado II)"
+        recomendacion = "     (Obesidad grado II)"
     }
     else if (res > 40) {
-        recomendacion = "     (Esto es obesidad de grado III)"
+        recomendacion = "     (Obesidad de grado III)"
     }
     resultado.value = res.toFixed(2) + recomendacion
 })

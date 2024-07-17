@@ -127,24 +127,25 @@ function crearTarjeta(array) {
             `
             <div class="container-fluid card-body text-center d-flex row">
                 <div class="form-check">
-                    <input onclick="marcarRealizada(${i})" id="check${i}" class="form-check-input check" type="checkbox" ${array[i].realizada ? "checked" : ""} value="" >
+                    <input onclick="marcarRealizada(${array[i].id})" id="check${array[i].id}" class="form-check-input check" 
+                    type="checkbox" ${array[i].realizada ? 'checked' : ""} value="" >
                     <label class="form-check-label fs-4" id=texto for="flexCheckChecked">${array[i].titulo}</label>
                 </div>
-                <h3 class="${array[i].realizada ? 'text-decoration-line-through' : ''}" id="tum${i}">${array[i].texto}</h3>
-                <button type="button" class="btn btn-danger" id=borrarNota onclick="borrarNota(${i})">Borrar nota</button>
+                <h3 class="${array[i].realizada ? 'text-decoration-line-through' : ''}" id="tum${array[i].id}">${array[i].texto}</h3>
+                <button type="button" class="btn btn-danger" id=borrarNota onclick="borrarNota(${array[i].id})">Borrar nota</button>
             </div>     
    `
 
         contieneTarjetas.appendChild(tarjeta)
     }
-
 }
 
 // Borrar nota
 
 function borrarNota(par) {
 
-    notas.splice(par, 1)
+    let p = notas.findIndex(elemento => { return elemento.id == par });
+    notas.splice(p, 1)
     crearTarjeta(notas)
 
     if (notas.length == 0) {
@@ -152,6 +153,8 @@ function borrarNota(par) {
         sinNotas.innerHTML = ` <h3 id=nohaynotas>No existen notas para mostrar.</h3> `
         contieneTarjetas.appendChild(sinNotas)
     }
+    buscarNotas.value = ""
+    document.getElementById("checkRealizadas").checked = false;
 }
 
 // Marcar realizada
@@ -160,16 +163,16 @@ function marcarRealizada(x) {
 
     let palomita = document.getElementById('check' + x).checked
     let incauto = document.getElementById('tum' + x)
+    let PO = notas.findIndex(elemento => { return elemento.id == x });
 
     if (palomita) {
-        notas[x].realizada = true
+        notas[PO].realizada = true
         incauto.classList.add('text-decoration-line-through')
     }
     else if (palomita == false) {
         console.log(palomita);
-        notas[x].realizada = false
+        notas[PO].realizada = false
         incauto.classList.remove('text-decoration-line-through')
-
     }
 }
 
@@ -188,8 +191,8 @@ function mostrarRealizadas() {
         let textoBuscar = buscarNotas.value.trim();
 
         let notasFi = mostrar.filter(nota => {
-            let textoFi = nota.titulo.includes(textoBuscar)
-                || nota.texto.includes(textoBuscar);
+            let textoFi = nota.titulo.toLowerCase().includes(textoBuscar.toLowerCase())
+                || nota.texto.toLowerCase().includes(textoBuscar.toLowerCase());
             return textoFi
         })
         crearTarjeta(notasFi)
@@ -202,48 +205,17 @@ function mostrarRealizadas() {
 
         let textoBuscar = buscarNotas.value.trim();
         let notasFi = notas.filter(nota => {
-            let textoFi = nota.titulo.includes(textoBuscar)
-                || nota.texto.includes(textoBuscar);
+            let textoFi = nota.titulo.toLowerCase().includes(textoBuscar.toLowerCase())
+                || nota.texto.toLowerCase().includes(textoBuscar.toLowerCase());
             return textoFi
         })
         crearTarjeta(notasFi)
     }
+    console.log(notas);
 }
 
 //Buscador de notas
 
 buscarNotas.addEventListener('keyup', () => {
-
-    let palomita = document.getElementById('checkRealizadas').checked
-    let mostrar = notas.filter(real => real.realizada == true)
-
-    if ((palomita) && (buscarNotas.value == "")) {
-        crearTarjeta(mostrar)
-    }
-    else if ((palomita) && (buscarNotas.value !== "")) {
-
-        let textoBuscar = buscarNotas.value.trim();
-
-        let notasFi = mostrar.filter(nota => {
-            let textoFi = nota.titulo.includes(textoBuscar)
-                || nota.texto.includes(textoBuscar);
-            return textoFi
-        })
-        crearTarjeta(notasFi)
-    }
-    else if ((palomita == false) && (buscarNotas.value == "")) {
-        crearTarjeta(notas)
-    }
-    else if ((palomita == false) && (buscarNotas.value !== "")) {
-
-        let textoBuscar = buscarNotas.value.trim();
-        let notasFi = notas.filter(nota => {
-            let textoFi = nota.titulo.includes(textoBuscar)
-                || nota.texto.includes(textoBuscar);
-            return textoFi
-        })
-        crearTarjeta(notasFi)
-    }
-
+    mostrarRealizadas()
 })
-
